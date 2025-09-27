@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arnav Saraf – Electrical Engineering Portfolio</title>
+  <meta name="description" content="Electrical Engineering portfolio – robotics, PCB design, FRC, Unity, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-dark:#070707;
+      --text:#e9eef2;
+      --muted:#c6d0d6;
+      --brand:#e8a7a7;          /* light rose for buttons */
+      --brand-2:#c6d7df;        /* pale blue for secondary buttons */
+      --panel:#476b78;          /* teal/steel project section */
+      --card:#0f1115;           /* modal bg */
+      --accent:#9ad1df;         /* small accents */
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg-dark)}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:1100px;margin-inline:auto;padding:28px}
+
+    /* Hero */
+    header.hero{background:var(--bg-dark);padding:28px 0 26px;position:relative}
+    .top-ctas{position:absolute;right:28px;top:28px;display:flex;gap:14px}
+    .btn{appearance:none;border:0;cursor:pointer;border-radius:999px;padding:10px 20px;font-weight:700;letter-spacing:.4px;box-shadow:var(--shadow);transition:.2s transform ease, .2s filter ease}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+    .btn:active{transform:translateY(0)}
+    .btn.primary{background:var(--brand);color:#3a2222}
+    .btn.secondary{background:var(--brand-2);color:#1a2830}
+
+    .title{font-family:"DM Serif Display",serif;font-size:clamp(36px,5vw,58px);text-align:center;margin:10px 0 6px}
+    .subtitle{text-align:center;font-size:12px;opacity:.8;letter-spacing:.5px}
+
+    .about{max-width:720px;margin:22px auto 0;line-height:1.55;font-size:14px;color:var(--muted)}
+
+    /* Projects section */
+    section.projects{background:var(--panel);padding:40px 0 70px}
+    .section-title{font-weight:900;text-transform:none;text-align:center;margin:0 0 18px;font-size:22px}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;align-items:start}
+    @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.grid{grid-template-columns:1fr}}
+
+    .project{
+      display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center
+    }
+    .project h4{margin:6px 0 0;font-size:14px;text-decoration:underline}
+    .thumb{
+      width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:linear-gradient(135deg,#1a2a2f,#29414a)
+    }
+    .thumb img{width:100%;height:100%;object-fit:cover}
+
+    /* Footer / social */
+    footer{padding:60px 0 80px;background:var(--bg-dark)}
+    .footer-flex{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+    @media (max-width:900px){.footer-flex{grid-template-columns:1fr}}
+    .card{background:#0b0d10;border:1px solid #1d2329;border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+    .card h5{margin:6px 0 10px;font-size:16px}
+
+    /* Modal */
+    dialog#project-modal{border:none;border-radius:20px;padding:0;max-width:min(860px,92vw);background:#0b0e11;color:var(--text);box-shadow:var(--shadow)}
+    .modal-inner{display:grid;grid-template-columns:1fr;gap:0}
+    .modal-head{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid #1c2126}
+    .modal-title{font-size:24px;font-weight:800}
+    .modal-body{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;padding:18px 22px}
+    @media (max-width:860px){.modal-body{grid-template-columns:1fr}}
+    .modal-gallery{display:grid;gap:12px}
+    .modal-gallery img{width:100%;border-radius:12px}
+    .modal-list{padding-left:18px;color:var(--muted);line-height:1.5}
+    .modal-close{background:#1e272e;color:#cdd7df;border:1px solid #2b3640}
+
+    /* small utilities */
+    .spacer{height:20px}
+    .center{text-align:center}
+    .muted{color:var(--muted)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  </style>
+</head>
+<body>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="top-ctas">
+      <a class="btn primary" href="assets/Arnav_Saraf_Resume.pdf" target="_blank" rel="noopener">RESUME</a>
+      <a class="btn secondary" href="#contact">CONTACT</a>
+    </div>
+    <div class="wrap">
+      <h1 class="title">Arnav Saraf</h1>
+      <div class="subtitle">Electrical Engineering Portfolio</div>
+      <p class="about center">
+        I am an electrical engineering student at the University of Waterloo with experience in robotics and PCB design. I've designed competition‑ready robots, fabricated PCBs for aerial drones, and programmed autonomous functions using C++. My hands‑on experience includes 3D printing, circuit design, and leading robotics teams to international competitions while mentoring younger students in STEM fields.
+      </p>
+    </div>
+  </header>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects">
+    <div class="wrap">
+      <h2 class="section-title">My Projects</h2>
+      <div id="grid" class="grid"><!-- populated by JS --></div>
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer id="contact">
+    <div class="wrap footer-flex">
+      <div class="center">
+        <a class="btn primary" href="assets/Arnav_Saraf_Resume.pdf" target="_blank" rel="noopener">RESUME</a>
+      </div>
+      <div class="card">
+        <h5>LinkedIn</h5>
+        <p class="muted">Reach out for co‑op opportunities, robotics collaborations, or PCB work.</p>
+        <p><a class="btn secondary" href="https://www.linkedin.com/in/arnav-saraf/" target="_blank" rel="noopener">CONTACT</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <dialog id="project-modal">
+    <div class="modal-inner">
+      <div class="modal-head">
+        <div class="modal-title" id="modal-title">Project</div>
+        <button class="btn modal-close" onclick="closeModal()" aria-label="Close project details">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-gallery" id="modal-gallery"></div>
+        <div>
+          <ul class="modal-list" id="modal-points"></ul>
+        </div>
+      </div>
+      <div class="spacer"></div>
+    </div>
+  </dialog>
+
+  <script>
+    // ------- Data (replace image URLs with your own) -------
+    const projects = [
+      {
+        title: "Altium LDO",
+        thumb: "img/altium-ldo-thumb.jpg",
+        gallery:[
+          "img/altium-ldo-1.jpg",
+          "img/altium-ldo-2.jpg",
+          "img/altium-ldo-3.jpg"
+        ],
+        points:[
+          "To join WARG, designed an LDO board and learned Altium end‑to‑end (symbols, footprints, schematics, layout).",
+          "Selected passives from datasheets; created custom capacitor/resistor libraries and verified footprints.",
+          "Calculated trace widths (~15 mm equivalent copper cross‑section for current needs) and considered thermal paths.",
+          "Added ground pours and stitching vias to reduce return impedance; checked clearance/DRCs.",
+          "Produced final schematic and PCB (see gallery)."
+        ]
+      },
+      {
+        title: "CAN Logger (Altium)",
+        thumb: "img/can-logger-thumb.jpg",
+        gallery:[
+          "img/can-logger-1.jpg",
+          "img/can-logger-2.jpg"
+        ],
+        points:[
+          "Schematic & PCB for a compact CAN logging board used on drone subsystems.",
+          "Included voltage regulation, MCU, CAN transceiver, and SD card interface; routed with short return paths for low EMI.",
+          "Brought up with continuity checks and expected voltage rails; validated CAN frames captured to storage."
+        ]
+      },
+      {
+        title: "FRC Robot Prototyping",
+        thumb: "img/frc-thumb.jpg",
+        gallery:[
+          "img/frc-1.jpg",
+          "img/frc-2.jpg"
+        ],
+        points:[
+          "Game objective: score large inflatable balls in a high goal.",
+          "Explored multiple concepts including vacuum suction and a claw; suction proved unreliable (air‑tight seal issues).",
+          "Settled on a vertical one‑wheel intake attached to an elevator to pull the ball in and lift to target height.",
+          "Prototyped in the wood shop as proof‑of‑concept; integrated into final robot used at an international competition."
+        ]
+      },
+      {
+        title: "Rocket",
+        thumb: "img/rocket-thumb.jpg",
+        gallery:[
+          "img/rocket-1.jpg"
+        ],
+        points:[
+          "Designed and launched a small rocket; iterated nozzle geometry and ignition reliability.",
+          "Captured video/telemetry and analyzed thrust‑to‑weight and stability margins."
+        ]
+      },
+      {
+        title: "Unity Video Games",
+        thumb: "img/unity-thumb.jpg",
+        gallery:[
+          "img/unity-1.jpg"
+        ],
+        points:[
+          "Built a third‑person prototype with basic AI and physics materials.",
+          "Level block‑outs, lighting tests, and controller tuning for feel."
+        ]
+      },
+      {
+        title: "Electromagnetic Railgun",
+        thumb: "img/railgun-thumb.jpg",
+        gallery:[
+          "img/railgun-1.jpg"
+        ],
+        points:[
+          "Bench‑built a small railgun/coil‑launcher hybrid; tested switching, safety interlocks, and projectile fit.",
+          "Measured muzzle energy and iterated conductor spacing and coil characteristics."
+        ]
+      }
+    ];
+
+    // ------- Render grid -------
+    const grid = document.getElementById('grid');
+    projects.forEach((p,idx)=>{
+      const el = document.createElement('article');
+      el.className = 'project';
+      el.innerHTML = `
+        <a href="#" class="thumb" data-idx="${idx}" aria-label="Open ${p.title} details">
+          <img src="${p.thumb}" alt="${p.title} thumbnail" loading="lazy"/>
+        </a>
+        <h4><a href="#" data-idx="${idx}" aria-label="Open ${p.title} details">${p.title}</a></h4>
+      `;
+      grid.appendChild(el);
+    });
+
+    // ------- Modal logic -------
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalGallery = document.getElementById('modal-gallery');
+    const modalPoints = document.getElementById('modal-points');
+
+    function openModal(idx){
+      const p = projects[idx];
+      modalTitle.textContent = p.title;
+      modalGallery.innerHTML = p.gallery.map(src=>`<img src="${src}" alt="${p.title} screenshot">`).join('');
+      modalPoints.innerHTML = p.points.map(t=>`<li>${t}</li>`).join('');
+      modal.showModal();
+    }
+    function closeModal(){ modal.close(); }
+    window.closeModal = closeModal;
+
+    document.addEventListener('click', (e)=>{
+      const idx = e.target.closest('[data-idx]')?.getAttribute('data-idx');
+      if(idx!==undefined && idx!==null){ e.preventDefault(); openModal(Number(idx)); }
+      if(e.target === modal){ closeModal(); }
+    });
+
+    // ESC to close
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modal.open) closeModal(); });
+  </script>
+</body>
+</html>
